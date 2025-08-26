@@ -45,4 +45,14 @@ public class ElectionController {
 
     @GetMapping("/elections/{id}")
     public Election get(@PathVariable Long id) { return elections.find(id); }
+
+    @GetMapping("/elections/{id}/candidate")
+    public List<Candidate> getCandidates(@PathVariable Long id) {
+        return elections.getCandidatesForElection(id);
+    }
+
+    @GetMapping("/elections")
+    public List<Election> getAll() {
+        return elections.findAll();
+    }
 }

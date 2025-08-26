@@ -52,4 +52,12 @@ public class ElectionService {
         e.setStoppedEarly(true);
         return elections.save(e);
     }
+
+    public List<Candidate> getCandidatesForElection(Long electionId) {
+        return candidates.findByElectionId(electionId);
+    }
+
+    public List<Election> findAll() {
+        return elections.findAll();
+    }
 }
